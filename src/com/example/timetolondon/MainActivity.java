@@ -73,3 +73,54 @@ public class MainActivity extends ActionBarActivity {
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/***/
+
+
+
+
+
+.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+			
+			@Override
+			public void onStopTrackingTouch(SeekBar seekBar1) {
+				// TODO Auto-generated method stub
+				speed =1;
+				int currentLevel = seekBar.getProgress();
+				if(currentLevel >=10 || currentLevel <= 10){
+					seekBar.setProgressAndThumb(5);
+				}
+				try {
+					sendData();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+			
+			@Override
+			public void onStartTrackingTouch(SeekBar seekBar) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void onProgressChanged(SeekBar seekBar, int progress,
+					boolean fromUser) {
+				// TODO Auto-generated method stub
+				tv1.setText(String.valueOf(progress));
+				speed = progress;
+			}
+		});
